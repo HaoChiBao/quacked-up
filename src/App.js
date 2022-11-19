@@ -6,6 +6,10 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {UserInfo} from './pages/UserInfo';
 import LobbyPage from './pages/LobbyPage';
 
+import DDG from './pages/duckDuckGoose'
+
+import Title from './pages/Title';
+
 
 
 function App() {
@@ -13,7 +17,10 @@ function App() {
     <Router>
       <div className="App">
           <Switch>
-            <Route exact path='/'>
+            <Route exact path = '/'>
+              <Title/>
+            </Route>
+            <Route exact path='/landing'>
               <LandingPage/>
             </Route>
             <Route exact path='/userinfo'>
@@ -21,6 +28,9 @@ function App() {
             </Route>
             <Route exact path = '/lobby'>
               <LobbyPage/>
+            </Route>
+            <Route exact path = '/ddg'>
+              <DDG/>
             </Route>
           </Switch>
       </div>

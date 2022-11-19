@@ -10,6 +10,7 @@ import { lobbyRoomNumber } from './UserInfo.js';
 
 function LobbyPage() {
 
+    // const MINUTE_MS = 1000;
     const MINUTE_MS = 1000;
     const [fields, setFields] = useState([]);
     const gamesCollectionRef = collection(db, "rooms");
@@ -29,19 +30,25 @@ function LobbyPage() {
   return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
 }, [])
 if(typeof fields[lobbyRoomNumber] !== 'undefined') {
-        console.log(fields[lobbyRoomNumber])
+        console.log(lobbyRoomNumber)
+        const userIndex = Object.keys(fields[lobbyRoomNumber].users)
+        const sortedUser = []
+        for(let i = 0;i < userIndex.length;i++){
+            sortedUser[fields[lobbyRoomNumber].users[userIndex[i]].index] = fields[lobbyRoomNumber].users[userIndex[i]].name
+        }
         return (
             <div>
-                {/* {postings.map((postings) => { */}
-                {/* {console.log(fields[lobbyRoomNumber].users['user0'].name)} */}
-                <div>hello</div>
-               {/* {fields[lobbyRoomNumber].users.map((user) => {
+               {sortedUser.map((user) => {
+                    // {const username = fields[lobbyRoomNumber].users[user].name;
                     return (
-                        <div>Hi</div>
+                        <div>
+                            {user}
+                        </div>
                     );
-                })} */}
+            //    }
+            })}
             </div>
-        );
+        )
     } else {
         return (
             <div>not defined yet : u</div>

@@ -1,0 +1,38 @@
+.display-container {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.enter-quackid {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 101px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #912009;
+}
+
+.left-align {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(106.84deg, #E6D7AD 13.5%, rgba(150, 185, 156, 0.56) 120.04%);
+}
+
+.input-code {
+    width: 845px;
+    height: 93px;
+    background: #618D68;
+    border-radius: 20px;
+    border-width: 0px;
+    color: rgba(236, 221, 177, 1);
+}
+
+.input-code::placeholder {
+    color: rgba(236, 221, 177, 1)
+;
+}

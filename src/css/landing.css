@@ -1,0 +1,87 @@
+.button {
+    width: 845px;
+    height: 95px;
+    background: #618D68;
+    border-radius: 20px;
+}
+
+.container {
+    display: block;
+}
+
+.center {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(106.84deg, #E6D7AD 13.5%, rgba(150, 185, 156, 0.56) 120.04%);
+}
+
+.create-button {
+    width: 845px;
+    height: 95px;
+    background: #618D68;
+    border-radius: 20px;
+    border-width: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    font-style: bold;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    transition-duration: 0.4s;
+/* identical to box height */
+
+text-align: center;
+
+color: #ECDDB1;
+
+    
+}
+.create-button:hover {
+    background: rgb(246, 177, 64);
+    color: #618D68;
+}
+
+.input-code {
+/* Rectangle 5 */
+    width: 845px;
+    height: 95px;
+    background: none;
+    border: 3px solid #96B99C;
+    border-radius: 20px;
+    font-style: normal;
+font-weight: 700;
+font-size: 48px;
+line-height: 58px;
+text-align:center;
+}
+
+.input-code::placeholder {
+    color: rgba(77, 97, 80, 1);
+}
+
+.input-container{
+    margin-top: 25px;
+}
+
+.join-button {
+    width: 355px;
+    height: 75px;
+    margin-top: 25px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-width: 0;
+    background: #912009;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    color: #ECDDB1;
+    transition-duration: 0.4s;
+}
+
+.join-button:hover {
+    background: #ECDDB1;
+    color: #912009;
+}

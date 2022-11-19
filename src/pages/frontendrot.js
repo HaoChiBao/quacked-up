@@ -6,9 +6,8 @@ import {useState, useEffect} from 'react'
 import '../css/userinfo.css'
 
 var currentGameInformation;
-let lobbyRoomNumber = 1;
-var userID;
-var userArray = {};
+let lobbyRoomNumber = 0;
+var userArray = {}
 
 function UserInfo() {
     const [userName, setUserName] = useState("")
@@ -27,13 +26,13 @@ function UserInfo() {
     }
 
     const addUser = async () => {
+        // write into the lobby id
 
         const docRef = doc(db, 'rooms', lobbyId);
 
         const len = Object.keys(currentGameInformation.users).length
         userArray.index = len
         currentGameInformation.users[`user${len}`] = userArray
-        userID = `user${len}`
 
         await updateDoc(docRef, {
             users: currentGameInformation.users
@@ -63,7 +62,7 @@ function UserInfo() {
 
     return (
         <div className="left-align">
-            {/* <div className="display-container">
+            <div className="display-container">
                 <div className="title-text">
                     <div className="name-title-container">
                         <div className="enter-quackid">Enter QuackID</div>
@@ -74,7 +73,7 @@ function UserInfo() {
                         </div>
                     </div> 
                 </div>
-                <div>image</div> */}
+                <div>image</div>
                 <button onClick={() => {selectProfilePicture(0)}}>0</button>
                 <button onClick={() => {selectProfilePicture(1)}}>1</button>
                 <button onClick={() => {selectProfilePicture(2)}}>2</button>
@@ -83,10 +82,10 @@ function UserInfo() {
                     <input></input>
                 </form>
                 <button onClick={addUser}>submit</button>
-            {/* </div> */}
+            </div>
 
         </div>
     )
 }
 
-export {UserInfo, lobbyRoomNumber, userID};
+export {UserInfo, lobbyRoomNumber, userArray};

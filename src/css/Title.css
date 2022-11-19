@@ -1,0 +1,73 @@
+.center {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(106.84deg, #E6D7AD 13.5%, rgba(150, 185, 156, 0.56) 120.04%);
+}
+
+.body {
+    display: block;
+    
+    
+}
+
+@keyframes moveup {
+    0% {height: 275px;}
+    100% {height: 154px;}
+}
+
+.wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-self: center;
+    justify-items: center;
+    justify-content: center;
+    font-style: bold;
+    font-weight: 700;
+    font-size: 128px;
+    line-height: 154px;
+    text-align: center;
+    /* width: 100vh; */
+    text-align: center;
+    color: rgb(144, 32, 9);
+    height: 154px;
+    animation-name: moveup;
+    animation-duration: 2s;
+}
+
+@keyframes appear {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+
+.start-button {
+    width: 845px;
+    height: 95px;
+    left: 334px;
+    top: 491px;
+    /* opacity: 0; */
+    background: #618D68;
+    border-radius: 20px;
+    border-width: 0;
+    margin-top: 35px;
+    transition-duration: 0.4s;
+    font-size: 48px;
+    color:rgba(236, 221, 177, 1);
+    font-weight: bold;
+    animation-name: appear;
+    animation-duration: 2s;
+    /* animation-delay: 2s; */
+    opacity: 1;
+}
+
+.tagline {
+    color: #96B99C;
+}
+
+.start-button:hover {
+    background: rgb(246, 177, 64);
+    color: #618D68;
+}

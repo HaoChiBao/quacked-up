@@ -3,6 +3,7 @@ import React, {Component, useState, useRef}  from 'react';
 import {addDoc, collection} from "firebase/firestore";
 import {db} from '../firebase/FirebaseConfig.js'
 import {Link} from 'react-router-dom';
+import '../css/landing.css'
 
 // function createUID(users, name, pfp){
 //     let len = Object.keys(users).length
@@ -43,19 +44,26 @@ function LandingPage() {
     }
 
     return (
-        <div id ="boo">
-            <Link to = '/userinfo'>
-                <button onClick={createGameRoom}>create</button>
-            </Link>
-            
-            <form value={roomCode} onChange={e=>setRoomCode(e.target.value)}>
-                <input></input>
-            </form>
-            {/* <button onClick={() => joinRoom(roomCode)}>join</button> */}
-            <Link to = "/userinfo">
-                <button onClick={() => joinRoom(roomCode)}>join</button>
-            </Link>
-            <div>Hi</div>
+        <div className ="center">
+            <div className='container'>
+
+                <Link to = '/userinfo'>
+                    <button onClick={createGameRoom} className='create-button'>create room</button>
+                </Link>
+
+                <div className='input-container'>
+                    <form value={roomCode} onChange={e=>setRoomCode(e.target.value)} >
+                        <input className='input-code' placeholder='enter code here'></input>
+                    </form>
+
+                </div>
+                {/* <button onClick={() => joinRoom(roomCode)}>join</button> */}
+                <Link to = "/userinfo">
+                    <button onClick={() => joinRoom(roomCode)} className='join-button'>join</button>
+                </Link>
+                {/* <div>Hi</div> */}
+                
+            </div>
         </div>
     );
 }
