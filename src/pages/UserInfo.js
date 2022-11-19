@@ -1,12 +1,19 @@
-import { async } from "@firebase/util";
-import {addDoc, collection, doc, getDocs} from "firebase/firestore";
+import {collection, doc, getDocs, updateDoc} from "firebase/firestore";
 import {Link} from 'react-router-dom';
 import {db} from '../firebase/FirebaseConfig.js'
 import {lobbyId} from "./Landing.js"
 import {useState, useEffect} from 'react'
 
+var currentGameInformation;
+let lobbyRoomNumber = 0;
+
 function UserInfo() {
-    var selectedDuck = getRandomInt(4);
+    const [userName, setUserName] = useState("")
+    let selectedDuck = getRandomInt(4);
+    const userArray = {
+        name: userName,
+        pfp: selectedDuck
+    };
     const [fields, setFields] = useState([]);
     const gamesCollectionRef = collection(db, "rooms");
     // const gamesCollectionRef = doc(db, "rooms", lobbyId);
@@ -16,17 +23,16 @@ function UserInfo() {
     }
 
     const addUser  = async () => {
-        console.log(gamesCollectionRef)
-        // const sfRef = db.collection('cities').doc('SF');
-        // const collections = await sfRef.listCollections();
-        // collections.forEach(collection => {
-        //   console.log('Found subcollection with id:', collection.id);
-        // });
+        // write into the lobby id
 
-        // let test = await getDocs(gamesCollectionRef.doc(lobbyId))
-        // console.log(test)
-        
+        const docRef = doc(db, 'rooms', lobbyId);
 
+        const len = Object.keys(currentGameInformation.users).length
+        currentGameInformation.users[`user${len}`] = userArray
+
+        await updateDoc(docRef, {
+            users: currentGameInformation.users
+        })
     }
 
     useEffect(() => {
@@ -34,12 +40,20 @@ function UserInfo() {
             const data = await getDocs(gamesCollectionRef);
             setFields(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
         };
-        getFields();
-        console.log(fields)
+        getFields()
+        // await getFields();
     }, []);
 
     const selectProfilePicture = (selected) => {
         selectedDuck = selected;
+        console.log(selected)
+    }
+    
+    for(let i = 0; i < fields.length; i++){
+        if (fields[i].id == lobbyId) {
+            currentGameInformation = fields[i]
+            lobbyRoomNumber = i
+        }
     }
 
     return (
@@ -49,13 +63,14 @@ function UserInfo() {
                 <button onClick={() => {selectProfilePicture(1)}}>1</button>
                 <button onClick={() => {selectProfilePicture(2)}}>2</button>
                 <button onClick={() => {selectProfilePicture(3)}}>3</button>
-                <input placeholder="name"></input>
-                {/* <Link to = "/TBD"> */}
+                <form value={userName} onChange={e=>setUserName(e.target.value)}>
+                    <input></input>
+                </form>
                 <button onClick={addUser}>submit</button>
-                {/* </Link>     */}
+
             {/* </form> */}
         </div>
     )
 }
 
-export default UserInfo;
+export {UserInfo, lobbyRoomNumber};

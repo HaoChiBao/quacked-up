@@ -3,7 +3,8 @@ import React, {Component}  from 'react';
 // import LandingPage from './pages/Landing';
 import {LandingPage} from './pages/Landing';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import UserInfo from './pages/UserInfo';
+import {UserInfo} from './pages/UserInfo';
+import LobbyPage from './pages/LobbyPage';
 
 
 
@@ -17,6 +18,9 @@ function App() {
             </Route>
             <Route exact path='/userinfo'>
               <UserInfo/>
+            </Route>
+            <Route exact path = '/lobby'>
+              <LobbyPage/>
             </Route>
           </Switch>
       </div>
