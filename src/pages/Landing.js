@@ -25,21 +25,29 @@ function LandingPage() {
             users: {
             },
             games: {
-                currentGame: "DDG",
-                DDG: {
-                    goose: '0',
-                    promptDuck: '1',
-                    promptGoose: '2',
+                currentGame: "",
+                // DDG: {
+                //     goose: '0',
+                //     promptDuck: '1',
+                //     promptGoose: '2',
                     
-                },
+                // },
+            },
+            voting: {
+                totalVotes: 0,
+                DDG: 0,
+                DIG: 0, 
+                QAT: 0
             }
         })
         lobbyId = docRef.id
+        localStorage.setItem('lobbyID', JSON.stringify(lobbyId))
         console.log(lobbyId)
     }
     
     const joinRoom = async (id) => {
         lobbyId = id
+        localStorage.setItem('lobbyID', JSON.stringify(lobbyId))
         console.log(lobbyId)
     }
 

@@ -84,4 +84,6 @@ text-align:center;
 .join-button:hover {
     background: #ECDDB1;
     color: #912009;
+    border-color:#912009;
+    border-width: 1px;
 }
