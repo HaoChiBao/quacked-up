@@ -47,6 +47,7 @@ function UserInfo() {
         await updateDoc(docRef, {
             users: currentGameInformation.users
         })
+        console.log(userArray)
     }
 
     useEffect(() => {
@@ -61,6 +62,7 @@ function UserInfo() {
     const selectProfilePicture = (selected) => {
         const headImage = document.getElementById("selected-duck-container")
         headImage.src = imageList[selected]
+        userArray.pfp = selected
         // selectedDuck = selected;
         // console.log(selected)
         
@@ -78,13 +80,16 @@ function UserInfo() {
         <div className="left-align">
             <div className="display-container">
                 <div className="header-wrapper">
-                    <div className="header-container">
+                    <div className="header1-container">
                         <div className="title-text">
                             <div className="enter-quackid">enter quackid</div>
                             <form value={userName} onChange={e=>setUserName(e.target.value)} className='form-container'>
                                 <input className='input2-code' placeholder='your name'></input>
                             </form>
-                            <div className="room-code">{lobbyID}</div>
+                            <div className="code-container">
+                                <div className="room-code">your lobby code: {lobbyID}</div>
+
+                            </div>
                         </div>
                     </div>
                         <div className="profile-wrapper">
@@ -99,11 +104,23 @@ function UserInfo() {
                     
                     <div className="pick-duck">pick your debug duck</div>
                     <div className="duck-button">
-                        <button id = "btn1" name="James" onClick={() => {selectProfilePicture(0)}}> <img src={James}  alt=''/></button>
+                        <div className="label-button">
+                            <button id = "btn1" className = 'james' onClick={() => {selectProfilePicture(0)}}> <img src={James}  alt=''/></button>
+                            <div>james</div>
+                        </div>
                         {/* <label for="James">James</label> */}
-                        <button id = "btn2" onClick={() => {selectProfilePicture(1)}}><img src={Judy} alt=''/></button>
-                        <button id = "btn3" onClick={() => {selectProfilePicture(2)}}><img src={Stephen} alt=''/></button>
-                        <button id = "btn4" onClick={() => {selectProfilePicture(3)}}><img src={Sarina} alt = ''/></button>
+                        <div className="label-button">
+                            <button id = "btn2" className = 'judy' onClick={() => {selectProfilePicture(1)}}><img src={Judy} alt=''/></button>
+                            <div>judy</div>
+                        </div>
+                        <div className="label-button">
+                            <button id = "btn3" className = 'stephen'onClick={() => {selectProfilePicture(2)}}><img src={Stephen} alt=''/></button>
+                            <div>stephen</div>
+                        </div>
+                        <div className="label-button">
+                            <button id = "btn4" className = 'sarina' onClick={() => {selectProfilePicture(3)}}><img src={Sarina} alt = ''/></button>
+                            <div>sarina</div>
+                        </div>
                     
                     </div>
                 </div>

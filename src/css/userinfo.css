@@ -96,6 +96,7 @@ text-align:left;
     background-color: #E6D7AD;
     border-width: 1px;
     border-color: #912009;
+    transition-duration: 0.4s;
 }
 
 .join-ducks:hover {
@@ -108,13 +109,14 @@ text-align:left;
 .duck-button button:focus {
     background: #618D68;
     border-radius: 50px;
+    
 }
 
 .body-container{
     display: block;
 }
 
-.header-container {
+.header1-container {
     display: block;
     font-weight: bold;
 }
@@ -155,8 +157,54 @@ text-align:left;
 .form-container {
     margin-left: 40px;
 }
-/* 
+
 .room-code {
     font-weight: normal;
-    font-size: 12px;
-} */
+    font-size: 24px;
+    margin-top: 32px;
+}
+
+.code-container {
+    display: flex;
+    align-content: flex-start;
+    margin-left: 40px;
+}
+
+.james {
+    transition-duration: 0.4s;
+    margin-left: 20px;
+}
+
+.james:hover {
+    background-color: #618D68;
+    border-radius: 50px;
+}
+.judy {
+    transition-duration: 0.4s;
+    margin-left: 20px;
+}
+
+.judy:hover {
+    background-color: #618D68;
+    border-radius: 50px;
+}
+
+.stephen {
+    transition-duration: 0.4s;
+    margin-left: 20px;
+}
+
+.stephen:hover {
+    background-color: #618D68;
+    border-radius: 50px;
+}
+
+.sarina {
+    transition-duration: 0.4s;
+    margin-left: 20px;
+}
+
+.sarina:hover {
+    background-color: #618D68;
+    border-radius: 50px;
+}

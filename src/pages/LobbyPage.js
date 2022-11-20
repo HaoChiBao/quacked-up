@@ -36,10 +36,13 @@ function LobbyPage() {
 
   return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
 }, [])
-console.log(lobbyRoomNumber)
+console.log(JSON.parse(localStorage.getItem("userInformation")))
 
 const playerImage = (index) => {
-    const image = 0
+    const image = document.getElementById(`profile-image${index}`)
+    if(image != null){
+        image.src = imageList[index]
+    }
 }
 
 if(typeof fields[lobbyRoomNumber] !== 'undefined') {
@@ -47,8 +50,11 @@ if(typeof fields[lobbyRoomNumber] !== 'undefined') {
         const userIndex = Object.keys(fields[lobbyRoomNumber].users)
         const sortedUser = []
         const userIDs = []
+        const userPFP = []
+
         for(let i = 0;i < userIndex.length;i++){
             userIDs[fields[lobbyRoomNumber].users[userIndex[i]].index] = fields[lobbyRoomNumber].users[userIndex[i]].index
+            userPFP[fields[lobbyRoomNumber].users[userIndex[i]].index] = fields[lobbyRoomNumber].users[userIndex[i]].pfp
             sortedUser[fields[lobbyRoomNumber].users[userIndex[i]].index] = fields[lobbyRoomNumber].users[userIndex[i]].name
         }
         return (
@@ -60,7 +66,7 @@ if(typeof fields[lobbyRoomNumber] !== 'undefined') {
                     return (
                         <div className="img-bs">
                             <div>
-                                <img id = ' onLoad={playerImage(index)} src="" alt="cum"></img>
+                                <img id = {profileString} onLoad={playerImage(userPFP[index])} src="" alt="cum"></img>
                             </div>
                             <div className="player-name">
                             {sortedUser[index]}

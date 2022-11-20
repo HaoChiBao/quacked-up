@@ -43,7 +43,7 @@ const docRef = doc(db, 'rooms', lobbyID);
             // const status = JSON.parse(localStorage.getItem("status"))
 
             // console.log(vote.totalVotes, userLength)
-            if (vote.totalVotes >= userLength){
+            if (vote.totalVotes >= userLength && vote.totalVotes > 0){
                 let highest = 'ddg'
                 if(vote['DDG'] < vote['DIG']){
                     highest = 'dig'
@@ -137,9 +137,9 @@ const docRef = doc(db, 'rooms', lobbyID);
             
             <div className='main-container'>
                 <div className='game-buttons'>
-                    <button onClick={() => {increment('DDG')}}>ddg</button>
-                    <button onClick={() => {increment('DIG')}}>dig</button>
-                    <button onClick={() => {increment('QAT')}}>qat</button>
+                    <button onClick={() => {increment('Duck Duck Goose')}}>Duck Duck Goose</button>
+                    <button onClick={() => {increment('Duckstagram')}}>Duckstagram</button>
+                    <button onClick={() => {increment('Quack-a-tune')}}>Quack-a-tune</button>
                 </div>
             </div>
         </div>
