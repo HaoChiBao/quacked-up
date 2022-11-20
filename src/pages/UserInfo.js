@@ -23,7 +23,9 @@ function UserInfo() {
         name: userName,
         pfp: selectedDuck,
         index: 0,
-        lobbyRoomNumber: 0
+        lobbyRoomNumber: 0,
+        gameReady: false,
+
     };
     const [fields, setFields] = useState([]);
     const gamesCollectionRef = collection(db, "rooms");
