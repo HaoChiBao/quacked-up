@@ -13,7 +13,7 @@
     font-size: 84px;
     line-height: 101px;
     margin-bottom: 20px;
-    margin-left: 15px;
+    margin-left: 25px;
 
 color: #912009;
 
@@ -101,4 +101,9 @@ color: #912009;
     color: #ECDDB1;
     border-width: 0;
 
+  }
+
+  .img-bs img {
+    width: 150px;
+    height: 150px;
   }

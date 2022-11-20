@@ -1,8 +1,11 @@
 import {db} from '../firebase/FirebaseConfig.js'
 import {useState, useEffect} from 'react'
-import {collection, doc, getDocs, updateDoc} from "firebase/firestore";
+import {collection, doc, getDocs, updateDoc, setDoc} from "firebase/firestore";
 import { useHistory } from "react-router-dom";
 import '../css/VotingPage.css'
+import duckstagram from '../assets/duckstagram.png'
+import duckduckgoose from '../assets/duck_duck_goose.jpeg'
+import quacktune from '../assets/quacktune.jpg'
 // import {lobbyId} from "./Landing.js"
 
 localStorage.setItem("status", JSON.stringify(false))
@@ -43,7 +46,8 @@ const docRef = doc(db, 'rooms', lobbyID);
             // const status = JSON.parse(localStorage.getItem("status"))
 
             // console.log(vote.totalVotes, userLength)
-            if (vote.totalVotes >= userLength && vote.totalVotes > 0){
+            if ((vote.totalVotes >= userLength && vote.totalVotes > 0) || vote.voteComplete.done){
+                vote.voteComplete.done = false
                 let highest = 'ddg'
                 if(vote['DDG'] < vote['DIG']){
                     highest = 'dig'
@@ -133,13 +137,13 @@ const docRef = doc(db, 'rooms', lobbyID);
         <div className='voting-container'>
             <div className='header-container'>
                 Mini Games
-                </div>
+            </div>
             
             <div className='main-container'>
                 <div className='game-buttons'>
-                    <button onClick={() => {increment('Duck Duck Goose')}}>Duck Duck Goose</button>
-                    <button onClick={() => {increment('Duckstagram')}}>Duckstagram</button>
-                    <button onClick={() => {increment('Quack-a-tune')}}>Quack-a-tune</button>
+                    <button onClick={() => {increment('DDG')}}><img src={duckduckgoose} alt='Duck Duck Goose'/></button>
+                    <button onClick={() => {increment('DIG')}}><img src={duckstagram} alt='Duckstagram'/></button>
+                    <button onClick={() => {increment('QAT')}}><img src={quacktune} alt='Duckstagram'/></button>
                 </div>
             </div>
         </div>

@@ -8,6 +8,8 @@ import LobbyPage from './pages/LobbyPage';
 import VotingPage from './pages/VotingPage.js'
 import DDG from './pages/duckDuckGoose'
 import DIG from './pages/duckstagram'
+import Duck from './pages/Duck.js'
+import Goose from './pages/Goose.js'
 
 import Title from './pages/Title';
 
@@ -44,6 +46,14 @@ function App() {
             
             <Route exact path = '/dig'>
               <DIG/>
+            </Route>
+
+            <Route exact path = '/duck'>
+              <Duck/>
+            </Route>
+
+            <Route exact path = '/goose'>
+              <Goose/>
             </Route>
           </Switch>
       </div>

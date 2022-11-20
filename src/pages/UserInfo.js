@@ -27,7 +27,7 @@ function UserInfo() {
     };
     const [fields, setFields] = useState([]);
     const gamesCollectionRef = collection(db, "rooms");
-    const lobbyID = localStorage.getItem('lobbyID')
+    // const lobbyID = localStorage.getItem('lobbyID')
     // const gamesCollectionRef = doc(db, "rooms", lobbyId);
     
     function getRandomInt(max) {
@@ -87,8 +87,7 @@ function UserInfo() {
                                 <input className='input2-code' placeholder='your name'></input>
                             </form>
                             <div className="code-container">
-                                <div className="room-code">your lobby code: {lobbyID}</div>
-
+                                <div className="room-code">your lobby code: {JSON.parse(localStorage.getItem('lobbyID'))}</div>
                             </div>
                         </div>
                     </div>
@@ -100,8 +99,6 @@ function UserInfo() {
                         </div>
                 </div>
                 <div className="body-container">
-                    
-                    
                     <div className="pick-duck">pick your debug duck</div>
                     <div className="duck-button">
                         <div className="label-button">
