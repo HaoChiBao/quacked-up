@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/quacked-up/static/css/main.cf5bc63c.css",
-    "main.js": "/quacked-up/static/js/main.21134f8a.js",
+    "main.js": "/quacked-up/static/js/main.40bc974b.js",
     "static/js/787.2fdd36c1.chunk.js": "/quacked-up/static/js/787.2fdd36c1.chunk.js",
     "static/media/duckstagram.png": "/quacked-up/static/media/duckstagram.e6308b311a5797e823dd.png",
     "static/media/duck_duck_goose.jpeg": "/quacked-up/static/media/duck_duck_goose.6e4122a705db510e11bf.jpeg",
@@ -13,11 +13,11 @@
     "static/media/Goose.png": "/quacked-up/static/media/Goose.6afb1707d4413501263c.png",
     "index.html": "/quacked-up/index.html",
     "main.cf5bc63c.css.map": "/quacked-up/static/css/main.cf5bc63c.css.map",
-    "main.21134f8a.js.map": "/quacked-up/static/js/main.21134f8a.js.map",
+    "main.40bc974b.js.map": "/quacked-up/static/js/main.40bc974b.js.map",
     "787.2fdd36c1.chunk.js.map": "/quacked-up/static/js/787.2fdd36c1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cf5bc63c.css",
-    "static/js/main.21134f8a.js"
+    "static/js/main.40bc974b.js"
   ]
 }
