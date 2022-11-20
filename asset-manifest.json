@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/quacked-up/static/css/main.cf5bc63c.css",
+    "main.js": "/quacked-up/static/js/main.21134f8a.js",
+    "static/js/787.2fdd36c1.chunk.js": "/quacked-up/static/js/787.2fdd36c1.chunk.js",
+    "static/media/duckstagram.png": "/quacked-up/static/media/duckstagram.e6308b311a5797e823dd.png",
+    "static/media/duck_duck_goose.jpeg": "/quacked-up/static/media/duck_duck_goose.6e4122a705db510e11bf.jpeg",
+    "static/media/quacktune.jpg": "/quacked-up/static/media/quacktune.9dcf09ed365b1980bdcc.jpg",
+    "static/media/Sarina.png": "/quacked-up/static/media/Sarina.f6a9fa2576734732e14e.png",
+    "static/media/Judy.png": "/quacked-up/static/media/Judy.ee05cc5d3a5f1a642985.png",
+    "static/media/James.png": "/quacked-up/static/media/James.4ccb15b12d16d12669a8.png",
+    "static/media/Stephen.png": "/quacked-up/static/media/Stephen.a07d3dd599d47a331dd1.png",
+    "static/media/Goose.png": "/quacked-up/static/media/Goose.6afb1707d4413501263c.png",
+    "index.html": "/quacked-up/index.html",
+    "main.cf5bc63c.css.map": "/quacked-up/static/css/main.cf5bc63c.css.map",
+    "main.21134f8a.js.map": "/quacked-up/static/js/main.21134f8a.js.map",
+    "787.2fdd36c1.chunk.js.map": "/quacked-up/static/js/787.2fdd36c1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cf5bc63c.css",
+    "static/js/main.21134f8a.js"
+  ]
+}
