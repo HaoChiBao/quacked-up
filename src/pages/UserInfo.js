@@ -16,6 +16,8 @@ var userArray = {};
 function UserInfo() {
     const imageList = [James, Judy, Stephen, Sarina]
     const [userName, setUserName] = useState("")
+    // const [duckPfp, setDuckPfp] = useState(0)
+    
     let selectedDuck = getRandomInt(4);
     userArray = {
         name: userName,
@@ -25,6 +27,7 @@ function UserInfo() {
     };
     const [fields, setFields] = useState([]);
     const gamesCollectionRef = collection(db, "rooms");
+    const lobbyID = localStorage.getItem('lobbyID')
     // const gamesCollectionRef = doc(db, "rooms", lobbyId);
     
     function getRandomInt(max) {
@@ -56,9 +59,13 @@ function UserInfo() {
     }, []);
 
     const selectProfilePicture = (selected) => {
-        selectedDuck = selected;
-        console.log(selected)
-        localStorage.setItem('selectedDuck', selected)
+        const headImage = document.getElementById("selected-duck-container")
+        headImage.src = imageList[selected]
+        // selectedDuck = selected;
+        // console.log(selected)
+        
+        // localStorage.setItem('selectedDuck', selected)
+        // setDuckPfp(localStorage.setItem('selectedDuck', selected))
     }
     
     for(let i = 0; i < fields.length; i++){
@@ -67,30 +74,37 @@ function UserInfo() {
             userArray.lobbyRoomNumber =  i
         }
     }
-
     return (
         <div className="left-align">
             <div className="display-container">
                 <div className="header-wrapper">
                     <div className="header-container">
                         <div className="title-text">
-                            <div className="enter-quackid">Enter QuackID</div>
-                            <form value={userName} onChange={e=>setUserName(e.target.value)}>
+                            <div className="enter-quackid">enter quackid</div>
+                            <form value={userName} onChange={e=>setUserName(e.target.value)} className='form-container'>
                                 <input className='input2-code' placeholder='your name'></input>
                             </form>
+                            <div className="room-code">{lobbyID}</div>
                         </div>
                     </div>
-                        <div>image</div>
+                        <div className="profile-wrapper">
+                            <div className="profile-container">
+                                <img id = "selected-duck-container"src={imageList[localStorage.getItem('selectedDuck')]} alt='' className="current-duck-image"></img>
+                            </div>
+                            <div className="duck-name">{userName}</div>
+                        </div>
                 </div>
                 <div className="body-container">
                     
                     
-                    <div className="pick-duck">Pick your Debug Duck</div>
+                    <div className="pick-duck">pick your debug duck</div>
                     <div className="duck-button">
-                        <button onClick={() => {selectProfilePicture(0)}}> <img src={James} /></button>
-                        <button onClick={() => {selectProfilePicture(1)}}><img src={Sarina} /></button>
-                        <button onClick={() => {selectProfilePicture(2)}}><img src={Stephen} /></button>
-                        <button onClick={() => {selectProfilePicture(3)}}><img src={Judy} /></button>
+                        <button id = "btn1" name="James" onClick={() => {selectProfilePicture(0)}}> <img src={James}  alt=''/></button>
+                        {/* <label for="James">James</label> */}
+                        <button id = "btn2" onClick={() => {selectProfilePicture(1)}}><img src={Judy} alt=''/></button>
+                        <button id = "btn3" onClick={() => {selectProfilePicture(2)}}><img src={Stephen} alt=''/></button>
+                        <button id = "btn4" onClick={() => {selectProfilePicture(3)}}><img src={Sarina} alt = ''/></button>
+                    
                     </div>
                 </div>
                     <Link to = '/lobby'>

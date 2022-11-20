@@ -5,7 +5,7 @@ import {lobbyId} from "./Landing.js"
 // import { userID } from "./UserInfo.js";
 import {useState, useEffect} from 'react'
 
-const PROMPTS = ["prompt0", "prompt1", "prompt2"]
+const PROMPTS = ["prompt0", "prompt1", "prompt2", "prompt3"]
 let userInfo = JSON.parse(localStorage.getItem('userInformation'))
 
 function DDG(){

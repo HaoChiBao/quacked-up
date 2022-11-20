@@ -2,6 +2,7 @@ import {db} from '../firebase/FirebaseConfig.js'
 import {useState, useEffect} from 'react'
 import {collection, doc, getDocs, updateDoc} from "firebase/firestore";
 import { useHistory } from "react-router-dom";
+import '../css/VotingPage.css'
 // import {lobbyId} from "./Landing.js"
 
 localStorage.setItem("status", JSON.stringify(false))
@@ -18,7 +19,7 @@ function VotingPage() {
     // let vote;
 
     useEffect(() => {
-        const duration = 1000
+        const duration = 500
         const getFields = async () => {
             const data = await getDocs(gamesCollectionRef)
             setFields(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
@@ -31,25 +32,40 @@ function VotingPage() {
         }, duration)
 
     return () => clearInterval(setLoop)
-    }, []);
-    
+}, []);
 
-    const checkChange = () =>{
+const docRef = doc(db, 'rooms', lobbyID);
+
+    const checkChange = async () =>{
         if(fields[lobbyRoomNumber] != undefined){
             const userLength = Object.keys(fields[lobbyRoomNumber].users).length
             const vote = fields[lobbyRoomNumber].voting
-            const status = JSON.parse(localStorage.getItem("status"))
+            // const status = JSON.parse(localStorage.getItem("status"))
 
             // console.log(vote.totalVotes, userLength)
             if (vote.totalVotes >= userLength){
-                // if(vote)
+                let highest = 'ddg'
+                if(vote['DDG'] < vote['DIG']){
+                    highest = 'dig'
+                }
+                if(vote['DIG'] < vote['QAT']){
+                    highest = 'qat'
+                }
+                
+                history.push(`/${highest}`)
 
-                vote['DDG'] = 0
-                vote['DIG'] = 0
-                vote['QAT'] = 0
-                vote['totalVotes'] = 0
+                let newVote = {}
+                Object.assign(newVote, vote)
+                newVote['DDG'] = 0
+                newVote['DIG'] = 0
+                newVote['QAT'] = 0
+                newVote['totalVotes'] = 0
 
-                history.push("/ddg")
+                
+                await updateDoc(docRef, {
+                    voting: newVote
+                })
+
             }
             // console.log(fields[lobbyRoomNumber].users)
 
@@ -58,7 +74,6 @@ function VotingPage() {
 
     checkChange()
 
-    const docRef = doc(db, 'rooms', lobbyID);
 
     const increment = async (gameName) => {
 
@@ -115,10 +130,18 @@ function VotingPage() {
     
 
     return (
-        <div>
-            <button onClick={() => {increment('DDG')}}>ddg</button>
-            <button onClick={() => {increment('DIG')}}>dig</button>
-            <button onClick={() => {increment('QAT')}}>qat</button>
+        <div className='voting-container'>
+            <div className='header-container'>
+                Mini Games
+                </div>
+            
+            <div className='main-container'>
+                <div className='game-buttons'>
+                    <button onClick={() => {increment('DDG')}}>ddg</button>
+                    <button onClick={() => {increment('DIG')}}>dig</button>
+                    <button onClick={() => {increment('QAT')}}>qat</button>
+                </div>
+            </div>
         </div>
     )
 }

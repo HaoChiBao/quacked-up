@@ -26,12 +26,14 @@ function LandingPage() {
             },
             games: {
                 currentGame: "",
-                // DDG: {
-                //     goose: '0',
-                //     promptDuck: '1',
-                //     promptGoose: '2',
-                    
-                // },
+                DDG: {
+                    goose: '',
+                    promptDuck: '',
+                    promptGoose: '',
+                },
+                DIG: {
+
+                }
             },
             voting: {
                 totalVotes: 0,

@@ -7,6 +7,10 @@ import {db} from '../firebase/FirebaseConfig.js'
 import {lobbyId} from "./Landing.js"
 import '../css/lobby.css'
 
+import James from '../assets/James.png'
+import Judy from '../assets/Judy.png'
+import Stephen from '../assets/Stephen.png'
+import Sarina from '../assets/Sarina.png'
 
 
 function LobbyPage() {
@@ -15,6 +19,8 @@ function LobbyPage() {
     const MINUTE_MS = 1000;
     const [fields, setFields] = useState([]);
     const gamesCollectionRef = collection(db, "rooms");
+
+    const imageList = [James, Judy, Stephen, Sarina]
 
     useEffect(() => {
     const interval = setInterval(() => {
@@ -31,33 +37,50 @@ function LobbyPage() {
   return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
 }, [])
 console.log(lobbyRoomNumber)
+
+const playerImage = (index) => {
+    const image = 0
+}
+
 if(typeof fields[lobbyRoomNumber] !== 'undefined') {
         // console.log(localStorage.getItem("lobbyRoomNumber"))
         const userIndex = Object.keys(fields[lobbyRoomNumber].users)
         const sortedUser = []
+        const userIDs = []
         for(let i = 0;i < userIndex.length;i++){
+            userIDs[fields[lobbyRoomNumber].users[userIndex[i]].index] = fields[lobbyRoomNumber].users[userIndex[i]].index
             sortedUser[fields[lobbyRoomNumber].users[userIndex[i]].index] = fields[lobbyRoomNumber].users[userIndex[i]].name
         }
         return (
             <div className="lobby-container">
                 <div className="player-heading"> Players</div>
-               {sortedUser.map((user) => {
+               {userIDs.map((index) => {
                     // {const username = fields[lobbyRoomNumber].users[user].name;
+                    const profileString = `profile-image${index}`
                     return (
                         <div className="img-bs">
-                            img
+                            <div>
+                                <img id = ' onLoad={playerImage(index)} src="" alt="cum"></img>
+                            </div>
                             <div className="player-name">
-                            {user}
+                            {sortedUser[index]}
                             </div>
-                            </div>
+                        </div>
                     );
             //    }
             })}
+                        <Link to = '/Voting'>
+                        <div><button className='lobby-button'>start</button></div>
+                        </Link>
+
             </div>
         )
     } else {
         return (
-            <div>not defined yet : u</div>
+            <div className="load-play">
+
+            <span class="loader"></span>
+            </div>
         )
     }
 }
