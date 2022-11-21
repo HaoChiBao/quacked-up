@@ -100,11 +100,13 @@ function DDG(){
                 }
             }
             hostParse()
+            console.log('instantiated')
         }
     }
     
     if(beginGame){
         let title = ""
+        console.log(gameData)
         if(userInfo.index == gameData.gooseIndex){
             title = "You are the Goose!"
         } else {

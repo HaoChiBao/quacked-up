@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {db} from '../firebase/FirebaseConfig.js'
 import {lobbyId} from "./Landing.js"
 import {useState, useEffect} from 'react'
+import { useHistory } from "react-router-dom";
 import '../css/userinfo.css'
 import James from '../assets/James.png'
 import Judy from '../assets/Judy.png'
@@ -29,6 +30,7 @@ function UserInfo() {
     };
     const [fields, setFields] = useState([]);
     const gamesCollectionRef = collection(db, "rooms");
+    const history = useHistory()
     // const lobbyID = localStorage.getItem('lobbyID')
     // const gamesCollectionRef = doc(db, "rooms", lobbyId);
     
@@ -39,9 +41,9 @@ function UserInfo() {
     const addUser = async () => {
 
         const docRef = doc(db, 'rooms', lobbyId);
-
         const len = Object.keys(currentGameInformation.users).length
         userArray.index = len
+        console.log(currentGameInformation)
         currentGameInformation.users[`user${len}`] = userArray
         // userID = `user${len}`
         localStorage.setItem('userInformation', JSON.stringify(userArray))
@@ -50,6 +52,7 @@ function UserInfo() {
             users: currentGameInformation.users
         })
         console.log(userArray)
+        history.push('/lobby')
     }
 
     useEffect(() => {
@@ -123,9 +126,9 @@ function UserInfo() {
                     
                     </div>
                 </div>
-                    <Link to = '/lobby'>
-                        <button className="join-ducks" onClick={(addUser)}>Join</button>
-                    </Link>
+                    {/* <Link to = '/lobby'> */}
+                    <button className="join-ducks" onClick={(addUser)}>Join</button>
+                    {/* </Link> */}
             </div>
             
         </div>

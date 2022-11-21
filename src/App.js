@@ -40,9 +40,9 @@ function App() {
               <VotingPage/>
             </Route> 
 
-            {/* <Route exact path = '/ddg'>
+            <Route exact path = '/ddg'>
               <DDG/>
-            </Route> */}
+            </Route>
             
             <Route exact path = '/dig'>
               <DIG/>
